@@ -33,7 +33,7 @@ app.post('/search', async (req, res) => {
 
   try {
     const result = await esClient.search({
-      index: 'students',
+      index: 'student',
       body: {
         size: 10000,
         query: {
