@@ -130,6 +130,7 @@ const syncToElasticsearch = async () => {
           address: row.address,
           gpa: row.gpa,
           enrollment_year: row.enrollment_year,
+          gist: row.gist
         });
       });
 

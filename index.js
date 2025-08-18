@@ -47,7 +47,8 @@ app.post('/search', async (req, res) => {
               "gender",
               "age",
               "gpa",
-              "enrollment_year"
+              "enrollment_year",
+              "gist" 
             ],
             lenient: true
           }
@@ -68,6 +69,7 @@ app.post('/search', async (req, res) => {
     console.error('Search error:', err);
     res.status(500).json({ error: 'Search failed' });
   }
+
 });
 
 

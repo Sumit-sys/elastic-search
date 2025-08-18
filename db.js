@@ -101,7 +101,8 @@ connection.connect((err) => {
       email VARCHAR(100) UNIQUE,
       address TEXT,
       gpa FLOAT,
-      enrollment_year INT
+      enrollment_year INT,
+      gist TEXT
     );
   `;
 
@@ -114,7 +115,7 @@ connection.connect((err) => {
     const totalBatches = totalRecords / batchSize;
 
     const insertQuery = `INSERT INTO students 
-      (full_name, age, gender, email, address, gpa, enrollment_year) 
+      (full_name, age, gender, email, address, gpa, enrollment_year,gist) 
       VALUES ?`;
 
     for (let batch = 0; batch < totalBatches; batch++) {
@@ -129,7 +130,8 @@ connection.connect((err) => {
           uniqueEmail,
           faker.location.streetAddress(),
           parseFloat((Math.random() * 4).toFixed(2)),
-          faker.date.anytime().getFullYear()
+          faker.date.anytime().getFullYear(),
+          faker.lorem.sentence(10)
         ]);
       }
 
