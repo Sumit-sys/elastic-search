@@ -77,6 +77,10 @@
 // app.listen(port, () => {
 //   console.log(`🚀 Search API running at http://localhost:${port}`);
 // });
+
+
+//Not Exact Serach
+
 const express = require('express');
 const { Client } = require('@elastic/elasticsearch');
 const bodyParser = require('body-parser');
@@ -113,7 +117,7 @@ app.post('/search', async (req, res) => {
         size: 10000,
         query: {
           query_string: {
-            query: keyword,
+            query: `*${keyword}*`,//use 'keyword' 
             fields: [
               "id",
               "full_name",
@@ -153,3 +157,5 @@ app.post('/search', async (req, res) => {
 app.listen(port, () => {
   console.log(`🚀 Search API running at http://localhost:${port}`);
 });
+
+
